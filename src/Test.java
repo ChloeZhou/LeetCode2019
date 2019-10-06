@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 import java.util.LinkedList;
 
 /**
@@ -44,10 +43,11 @@ public class Test {
         //int[] A = {1,0,1,1,0};
         //String[] A = {"amazon","apple","facebook","google","leetcode"};
         int[][] b = {{0, 0, 1, 0},{0, 1, 1, 0},{0, 1, 0, 1}};
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(15);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(7);
         //root.left.right = new TreeNode(5);
         //root.right.left = new TreeNode(6);
         String[] A = {"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
@@ -64,11 +64,14 @@ public class Test {
         String[] nums2 = {"ift","efd","dnete","tef","fdn"};
         //s.countNodes(nums1);
         Solution s = new Solution();
+        Contest156 c = new Contest156();
         //System.out.println(s.shortestSuperstring(nums2));
         String res = "iftefdnete";
         //System.out.println(res.length() + " " + s.shortestSuperstring(nums2).length());
         String[] cpdomains = {"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"};
-        System.out.println(s.subdomainVisits(cpdomains));
+        int[] input = {-169,-133,178,-50,-4,138,136,-140,137,69,8,-80,3,183,-57,164,192,191};
+        int  n = 1000000000, a = 2, b1 = 217983653, c1 = 336916467;
+        System.out.println(c.removeDuplicates("pbbcggttciiippooaais", 2));
         Deque<int[]> q = new LinkedList<>();
         //q.offerFirst(new int[]{row, col});
 //        for (int i = 0; i < nums1.length; i++) {

@@ -16,32 +16,30 @@ import java.util.LinkedList;
 //  [1, 2, 3]                       [1, 2]                  [1, 3]          [1]
 // [1, 2, 3, 4] [1, 2, 3]   [1, 2, 4]      [1, 2]     [1, 3, 4]  [1, 3]   [1]  [1, 4]
 class Solution {
-    public List<String> subdomainVisits(String[] cpdomains) {
+    public int rangeSumBST(TreeNode root, int L, int R) {
         //corner case:
-        List<String> result = new ArrayList<>();
-        if (cpdomains == null || cpdomains.length == 0) {
-            return result;
+        if (root == null) {
+            return 0;
         }
-        //
-        Map<String, Integer> map = new HashMap<>();
-        for (String s : cpdomains) {
-            String[] splitMap = s.split(" ");
-            int num = Integer.parseInt(splitMap[0]);
-            String domains = splitMap[1];
-            int i = 0;
-            while (i < domains.length()) {
-                if (i == 0 || domains.charAt(i - 1) == '.') {
-                    String domain = domains.substring(i);
-                    map.put(domain, map.getOrDefault(domain,0) + num);
-                }
-                i++;
+        if (root.left == null && root.right == null) {
+            return root.val <= R && root.val >= L ? root.val : 0;
+        }
+        int sum = 0;
+        //recursion rule:
+        if (root.val < L) {
+            sum = rangeSumBST(root.right, L, R);
+        } else if (root.val > R) {
+            sum = rangeSumBST(root.left, L, R);
+        } else {
+            if (root.left != null) {
+                sum += rangeSumBST(root.left, L, root.val);
             }
+            if (root.right != null) {
+                sum += rangeSumBST(root.right, root.val, R);
+            }
+            sum += root.val;
         }
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            String ele = entry.getValue() + " " + entry.getKey();
-            result.add(ele);
-        }
-        return result;
+        return sum;
     }
 
 }
