@@ -64,14 +64,15 @@ public class Test {
         String[] nums2 = {"ift","efd","dnete","tef","fdn"};
         //s.countNodes(nums1);
         Solution s = new Solution();
-        Contest159 c = new Contest159();
+        Contest163 c = new Contest163(new TreeNode(0));
         //System.out.println(s.shortestSuperstring(nums2));
         String res = "iftefdnete";
         //System.out.println(res.length() + " " + s.shortestSuperstring(nums2).length());
         String[] cpdomains = {"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"};
-        String[] input = {"/a","/a/b","/c/d","/c/d/e","/c/f"};
+        //int[][] input = {{0,0,1,0,0},{0,1,0,1,0},{0,1,1,1,0}};
+        int[] input = {1,2,3,4,4};
         int  n = 1000000000, a = 2, b1 = 217983653, c1 = 336916467;
-        System.out.println(c.balancedString("QWER"));
+        System.out.println(c.maxSumDivThree(input));
         Deque<int[]> q = new LinkedList<>();
         //q.offerFirst(new int[]{row, col});
 //        for (int i = 0; i < nums1.length; i++) {
@@ -81,4 +82,5 @@ public class Test {
         //s.addAtIndex(1, 5);
 
     }
+
 }
