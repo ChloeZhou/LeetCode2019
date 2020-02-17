@@ -16,30 +16,72 @@ import java.util.LinkedList;
 //  [1, 2, 3]                       [1, 2]                  [1, 3]          [1]
 // [1, 2, 3, 4] [1, 2, 3]   [1, 2, 4]      [1, 2]     [1, 3, 4]  [1, 3]   [1]  [1, 4]
 class Solution {
-    public int rangeSumBST(TreeNode root, int L, int R) {
-        //corner case:
-        if (root == null) {
-            return 0;
-        }
-        if (root.left == null && root.right == null) {
-            return root.val <= R && root.val >= L ? root.val : 0;
-        }
-        int sum = 0;
-        //recursion rule:
-        if (root.val < L) {
-            sum = rangeSumBST(root.right, L, R);
-        } else if (root.val > R) {
-            sum = rangeSumBST(root.left, L, R);
-        } else {
-            if (root.left != null) {
-                sum += rangeSumBST(root.left, L, root.val);
+
+    Stack<Integer> st1;
+    Stack<Integer> st2;
+    Stack<Integer> st3;
+    public Solution() {
+        // Write your solution here.
+        st1 = new Stack<Integer>();
+        st2 = new Stack<Integer>();
+        st3 = new Stack<Integer>();
+    }
+
+    public void offerFirst(int element) {
+        st1.push(element);
+    }
+
+    public void offerLast(int element) {
+        st2.push(element);
+    }
+
+    public Integer pollFirst() {
+        if (st1.isEmpty()) {
+            int size = st2.size();
+            for (int i = 0; i < size; i++) {
+                st1.push(st2.pop());
             }
-            if (root.right != null) {
-                sum += rangeSumBST(root.right, root.val, R);
-            }
-            sum += root.val;
         }
-        return sum;
+
+        return isEmpty() ? null : st1.pop();
+    }
+
+    public Integer pollLast() {
+        if (st2.isEmpty()) {
+            int size = st1.size();
+            for (int i = 0; i < size; i++) {
+                st2.push(st1.pop());
+            }
+        }
+        return isEmpty() ? null : st2.pop();
+    }
+
+    public Integer peekFirst() {
+        if (st1.isEmpty()) {
+            int size = st2.size();
+            for (int i = 0; i < size; i++) {
+                st1.push(st2.pop());
+            }
+        }
+        return isEmpty() ? null : st1.peek();
+    }
+
+    public Integer peekLast() {
+        if (st2.isEmpty()) {
+            int size = st1.size();
+            for (int i = 0; i < size; i++) {
+                st2.push(st1.pop());
+            }
+        }
+        return isEmpty() ? null : st2.peek();
+    }
+
+    public int size() {
+        return st1.size() + st2.size();
+    }
+
+    public boolean isEmpty() {
+        return st1.isEmpty() && st2.isEmpty();
     }
 
 }
