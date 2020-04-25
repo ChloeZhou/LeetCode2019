@@ -22,7 +22,7 @@ public class Test {
             System.out.println();
         }*/
         int INF = Integer.MAX_VALUE;
-        String[] inputA = {"i.......lovegoogle@example.com", "....ab@example.com", "ab+adfaekwjf@example.com","ab+ad@example.com", "ab..@example.com", "i.l.o.v.e.g.o.o.g.l.e@example.com", "ilovegoogle@example.com"};
+        //String[] inputA = {"i.......lovegoogle@example.com", "....ab@example.com", "ab+adfaekwjf@example.com","ab+ad@example.com", "ab..@example.com", "i.l.o.v.e.g.o.o.g.l.e@example.com", "ilovegoogle@example.com"};
         TreeNode node1 = new TreeNode(5);
         node1.left = new TreeNode(3);
         node1.left.right = new TreeNode(4);
@@ -42,7 +42,7 @@ public class Test {
         int[] wages = {4,8,2,2,7};
         //int[] A = {1,0,1,1,0};
         //String[] A = {"amazon","apple","facebook","google","leetcode"};
-        int[][] b = {{0, 0, 1, 0},{0, 1, 1, 0},{0, 1, 0, 1}};
+        //int[][] b = {{0, 0, 1, 0},{0, 1, 1, 0},{0, 1, 0, 1}};
         TreeNode root = new TreeNode(10);
         root.left = new TreeNode(5);
         root.right = new TreeNode(15);
@@ -57,21 +57,28 @@ public class Test {
         //int[] output = s.reOrder(4);
         //["NumArray","sumRange","sumRange","sumRange","update","update","update","sumRange","update","sumRange","update"]
         //[[[0,9,5,7,3]],[4,4],[2,4],[3,3],[4,5],[1,7],[0,8],[1,2],[1,9],[4,4],[3,4]
-        int[][] nums1 = {{1,0,1,1,0,0,0,0,0,0},
-                {1,1,1,1,1,1,0,0,0,0},{0,1,1,0,1,1,0,0,0,0},
-                {0,0,1,1,0,0,0,0,0,0},{0,0,1,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,1,1},{0,0,0,0,0,0,0,1,1,1},{0,0,0,0,0,0,1,1,1,1},{0,0,0,0,0,1,1,1,1,1}};
+        int[][] nums1 = {{0, 1, 1, 0, 1},
+                {0, 1, 0, 1, 0},{0, 0, 0, 0, 1},
+                {0, 1, 0, 0, 0}};
         String[] nums2 = {"ift","efd","dnete","tef","fdn"};
         //s.countNodes(nums1);
         Solution s = new Solution();
-        Contest175 c = new Contest175();
+        Contest184 c = new Contest184();
         //System.out.println(s.shortestSuperstring(nums2));
         String res = "iftefdnete";
         //System.out.println(res.length() + " " + s.shortestSuperstring(nums2).length());
         String[] cpdomains = {"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"};
         //int[][] input = {{0,0,1,0,0},{0,1,0,1,0},{0,1,1,1,0}};
-        int[][] input = {{0,0},{2,0},{1,1},{2,1},{2,2}};
-        int  n = 1000000000, a = 2, b1 = 217983653, c1 = 336916467;
+        //String[] input = {"i", "love", "leetcode", "i", "love", "coding"};
+        List<int[]> a = new ArrayList<int[]>();
+        a.add(new int[]{1, 8});
+        a.add(new int[]{2, 15});
+        a.add(new int[]{3, 9});
+        List<int[]> b = new ArrayList<int[]>();
+        b.add(new int[]{1, 8});
+        b.add(new int[]{2, 11});
+        b.add(new int[]{3, 12});
+        //int  n = 1000000000, a = 2, b1 = 217983653, c1 = 336916467;
 //        ListNode head = new ListNode(0);
 //        s.pollLast();
 //        s.peekFirst();
@@ -85,7 +92,12 @@ public class Test {
 //        System.out.println(s.peekLast());
 //        System.out.println(s.pollFirst());
 //        Deque<int[]> q = new LinkedList<>();
-        System.out.println(c.minSteps( "friend", "family"));
+        String[] input = {"croakcrook"};
+        System.out.println(c.minNumberOfFrogs("aoocrrackk"));
+//        for (int i = 0; i < result.size(); i++) {
+//            System.out.println(result.get(i)[0] + " " + result.get(i)[1]);
+//        }
+        //System.out.println(c.getPairs(a, b, 20));
         //q.offerFirst(new int[]{row, col});
 //        for (int i = 0; i < nums1.length; i++) {
 //            System.out.print(nums1[i]);
